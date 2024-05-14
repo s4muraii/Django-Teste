@@ -4,17 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        { % block head % }
-            Hotel Senai
-        { % endblock % }
+        {% block title %}
+
+        {% endblock %}
+
     </title>
+
+    {% block head%}
+
+    {% endblock %}
 </head>
 <body>
     {% include 'nav.html' %}
 
-    { % block body % }
-    { % endblock % }
+    {% block body%}
+            <h1>Hotel Senai!</h1>
+    {% endblock %}
 
     {% include 'footer.html' %}
+
 </body>
 </html>
