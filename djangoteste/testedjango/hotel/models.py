@@ -12,6 +12,7 @@ tipos_quartos = (
 class hotel (models.Model):
     titulo = models.CharField (max_length=50)
     descricao = models.TextField (max_length=200)
+    logo = models.ImageField(upload_to='logos/')
 
 class quarto (models.Model):
     tipo = models.CharField (max_length=15, choices=tipos_quartos)
