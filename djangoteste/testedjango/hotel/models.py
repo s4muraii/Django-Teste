@@ -1,22 +1,26 @@
 from django.db import models
 import datetime 
-# Create your models here.
 
-tipos_quartos = (
-    ("SOLTEIRO", "solteiro"),
-    ("CASAL", "casal"),
-    ("CONFORT", "confort"),
-    ("LUXO", "luxo")
+TIPOS_QUARTOS = (
+    ("SOLTEIRO", "Solteiro"),
+    ("CASAL","Casal"),
+    ("CONFORT","Confort"),
+    ("LUXO","Luxo"),
 )
 
-class hotel (models.Model):
-    titulo = models.CharField (max_length=50)
-    descricao = models.TextField (max_length=200)
-    logo = models.ImageField(upload_to='logos/')
+class hotel(models.Model):
+    titulo = models.CharField(max_length= 50)
+    desc = models.TextField(max_length= 500)
 
-class quarto (models.Model):
-    tipo = models.CharField (max_length=15, choices=tipos_quartos)
-    disponibilidade = models.IntegerField (max_length=9999)
-    valor = models.FloatField (max_length=9999)
-    descricao = models.TextField (max_length=300)
-    data_reserva = models.DateTimeField (default = datetime.datetime.now)
+    def __str__(self):
+        return self.titulo
+    
+class quarto(models.Model):
+    tipo = models.CharField(max_length= 15, choices=TIPOS_QUARTOS)
+    disponibilidade = models.IntegerField()
+    valor = models.FloatField(max_length=9999)
+    descricao = models.TextField(max_length=255)
+    data_reserva = models.DateTimeField(default= datetime.datetime.now)
+
+    def __str__(self):
+        return self.tipo
