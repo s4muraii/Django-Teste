@@ -31,9 +31,12 @@ class quarto(models.Model):
         return self.tipo
 
 
-class cadastro(models.Model):
+class Checkin(models.Model):
     nome = models.CharField(max_length=20)
+    sobrenome = models.CharField(max_length=20)
     email = models.CharField(max_length=50)
+    tipo_quarto = models.CharField(max_length=15, choices=TIPOS_QUARTOS)
+    data_reserva = models.DateTimeField(default=datetime.datetime.now)
 
     def __str__(self):
         return self.nome
